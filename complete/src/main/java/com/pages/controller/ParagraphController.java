@@ -1,10 +1,14 @@
 
-package com.pages.restservice;
+package com.pages.controller;
 import java.io.File;
 import java.util.List;
 import javax.xml.bind.JAXBException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.pages.service.*;
+import com.pages.model.*;
+
 
 @RestController
 @RequestMapping("/paragraphs")

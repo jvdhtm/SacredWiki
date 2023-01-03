@@ -19,6 +19,16 @@
             "projectName": "rest-service-initial",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RestServiceApplication<rest-service-complete>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.pages.restservice.RestServiceApplication",
+            "projectName": "rest-service-complete",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
