@@ -13,8 +13,8 @@ import com.pages.model.*;
 public class PhraseController {
     private final PhraseService phraseService;
 
-    public PhraseController(PhraseService phraseService) {
-        this.phraseService = phraseService;
+    public PhraseController() {
+        this.phraseService = new PhraseService();
     }
 
     @PostMapping
