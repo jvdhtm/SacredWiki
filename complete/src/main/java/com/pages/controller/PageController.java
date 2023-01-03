@@ -1,6 +1,7 @@
 
 package com.pages.controller;
 import java.io.File;
+import java.util.LinkedList;
 import java.util.List;
 import javax.xml.bind.JAXBException;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,12 @@ class PageController {
     public ResponseEntity<Page> getPage(@PathVariable int pageNumber) throws JAXBException {
         File file = new File("pages.xml");
         if (!file.exists()) {
+            Pages defaultPages = new Pages();
             Page defaultPage = new Page("Once there was a robot...");
+            List<Page> defaultListPages = new LinkedList<Page> ();
+            defaultListPages.add(defaultPage);
+            defaultPages.setPageList(defaultListPages);;
+            defaultPage.toXml(new File("pages.xml"));
             return ResponseEntity.ok(defaultPage);
         }
         Pages pageWrapper = Pages.fromXml(file);
