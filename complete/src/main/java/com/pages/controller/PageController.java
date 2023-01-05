@@ -30,15 +30,14 @@ class PageController {
         File file = new File("pages.xml");
         if (!file.exists()) {
             Pages defaultPages = new Pages();
+            defaultPages.setPageList(new LinkedList<Page>());
             Page defaultPage = new Page("Once there was a robot...");
-            List<Page> defaultListPages = new LinkedList<Page> ();
-            defaultListPages.add(defaultPage);
-            defaultPages.setPageList(defaultListPages);;
-            defaultPage.toXml(new File("pages.xml"));
+            defaultPages.getPageListField().add(defaultPage);
+            defaultPages.toXml(file);
             return ResponseEntity.ok(defaultPage);
         }
         Pages pageWrapper = Pages.fromXml(file);
-        List<Page> pages = pageWrapper.getPageList();
+        List<Page> pages = pageWrapper.getPageListField();
         Page page = pages.get(pageNumber);
         return ResponseEntity.ok(page);
     }

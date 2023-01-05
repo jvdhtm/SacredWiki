@@ -37,7 +37,7 @@ public class PhraseController {
             File file = new File("pages.xml");
             if (file.exists()) {
                 Pages pages = Pages.fromXml(file);
-                return pages.getPageList().get(pageNumber);
+                return pages.getPageListField().get(pageNumber);
             }
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class PhraseController {
         try {
             File file = new File("pages.xml");
             Pages pages = Pages.fromXml(file);
-            pages.getPageList().set(pageNumber, page);
+            pages.getPageListField().set(pageNumber, page);
             pages.toXml(file);
             return ResponseEntity.ok().build();
         } catch (JAXBException e) {

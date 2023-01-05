@@ -28,7 +28,7 @@ class ParagraphController {
     @GetMapping("/{pageNumber}/{paragraphNumber}")
     public ResponseEntity<Paragraph> getParagraph(@PathVariable int pageNumber, @PathVariable int paragraphNumber) throws JAXBException {
         Pages pageWrapper = Pages.fromXml(new File("pages.xml"));
-        List<Page> pages = pageWrapper.getPageList();
+        List<Page> pages = pageWrapper.getPageListField();
         Page page = pages.get(pageNumber);
         List<Paragraph> paragraphs = page.getParagraphs();
         Paragraph paragraph = paragraphs.get(paragraphNumber);

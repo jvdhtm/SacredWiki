@@ -1,11 +1,6 @@
 package com.pages.model;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 
 public class Page {
     private String text;
@@ -22,19 +17,6 @@ public class Page {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-	public static Page fromXml(File file) throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(Page.class);
-        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        return (Page) jaxbUnmarshaller.unmarshal(file);
-    }
-
-    public void toXml(File file) throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(Page.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        jaxbMarshaller.marshal(this, file);
     }
 
     public List<Paragraph> getParagraphs() {
