@@ -11,7 +11,7 @@ public class ParagraphService {
         this.pages = new ArrayList<>();
     }
 
-    public void addParagraph(int pageNumber, int paragraphNumber, Paragraph paragraph) {
+    public void addParagraph(int pageNumber, Paragraph paragraph) {
         Page page = pages.get(pageNumber);
         page.addParagraph(paragraph);
     }

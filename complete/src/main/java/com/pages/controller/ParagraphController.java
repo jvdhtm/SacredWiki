@@ -16,9 +16,9 @@ class ParagraphController {
     // Inject a ParagraphService instance
     private ParagraphService paragraphService;
 
-    @PostMapping("/{pageNumber}/{paragraphNumber}")
-    public ResponseEntity<Void> addParagraph(@PathVariable int pageNumber, @PathVariable int paragraphNumber, @RequestBody Paragraph paragraph) throws JAXBException {
-        paragraphService.addParagraph(pageNumber, paragraphNumber, paragraph);
+    @PostMapping("/{pageNumber}")
+    public ResponseEntity<Void> addParagraph(@PathVariable int pageNumber, @RequestBody Paragraph paragraph) throws JAXBException {
+        paragraphService.addParagraph(pageNumber, paragraph);
         Pages pageWrapper = new Pages();
         pageWrapper.setPageList(paragraphService.getAllPages());
         pageWrapper.toXml(new File("pages.xml"));
