@@ -2,10 +2,15 @@ package com.pages.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Page {
     private String text;
     private List<Paragraph> paragraphs;
 
+    public Page() {
+        this.text = "";
+        this.paragraphs = new ArrayList<>();
+    }
     public Page(String text) {
         this.text = text;
         this.paragraphs = new ArrayList<>();
