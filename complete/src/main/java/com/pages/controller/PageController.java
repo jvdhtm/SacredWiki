@@ -31,12 +31,14 @@ class PageController {
         if (!file.exists()) {
             Pages defaultPages = new Pages();
             defaultPages.setPageList(new LinkedList<Page>());
-            Page defaultPage = new Page("Once there was a robot...");
+            Page defaultPage = new Page();
+            Paragraph paragraph = new Paragraph("Once there was robot...");
+            defaultPage.addParagraph(paragraph);
             defaultPages.getPageListField().add(defaultPage);
             defaultPages.toXml(file);
             return ResponseEntity.ok(defaultPage);
         }
-        Pages pageWrapper = Pages.fromXml(file);
+         Pages pageWrapper = Pages.fromXml(file);
         List<Page> pages = pageWrapper.getPageListField();
         Page page = pages.get(pageNumber);
         return ResponseEntity.ok(page);

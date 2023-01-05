@@ -7,6 +7,10 @@ public class Paragraph {
     private String text;
     private List<Phrase> phrases;
 
+    public Paragraph() {
+        this.phrases = new ArrayList<>();
+    }
+    
     public Paragraph(String text) {
         this.text = text;
         this.phrases = new ArrayList<>();

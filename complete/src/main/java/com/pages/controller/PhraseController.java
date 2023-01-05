@@ -42,7 +42,7 @@ public class PhraseController {
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        return new Page("Once there was a robot...");
+        return new Page();
     }
 
     private ResponseEntity<Void> savePage(int pageNumber, Page page) {
